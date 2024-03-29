@@ -1,5 +1,5 @@
 # Dataset
-RealWorldOccludedFaces-*
+/RealWorldOccludedFaces-resized/images/neutral/**/*.jpg
 
 # Miscellaneous
 *.class
