@@ -1,4 +1,7 @@
 """ FIT3162 - MCS13 Code
+This file contains the BaseModel class.
+It acts as a base line for our Image Classification Deep Learning Model.
+Since it is just a base line, its architecture is extremely simple and has no optimisation.
 
 @author Benjamin Leong Tjen Ho
 @version 1.0.0
@@ -41,6 +44,7 @@ class BaseModel:
         build_cnn
         fit
         compute_accuracy
+        summary
 
     Static Method:
         _get_optimiser
@@ -186,7 +190,9 @@ class BaseModel:
             metrics=["accuracy"],
         )
 
-        self.history = self.model.fit(x_train, y_train, epochs=num_epochs)
+        self.history = self.model.fit(
+            x_train, y_train, epochs=num_epochs, verbose=self.verbose
+        )
 
         # Returning the History object computed from the .fit() function
         return self.history
@@ -260,6 +266,7 @@ class BaseModel:
         # SGD Optimiser - Gradient Descent (with momentum)
         else:
             return keras.optimizers.SGD(learning_rate, momentum=0.9)
+
 
 # ============================================================================================================= #
 
