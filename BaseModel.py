@@ -161,20 +161,23 @@ class BaseModel:
         self.model.add(layers.Flatten())
         self.model.add(layers.Dense(self.num_classes, activation="softmax"))
 
-    def fit(self, x_train, y_train, x_val=None, y_val=None, num_epochs=None) -> History:
+    def fit(
+        self, x_train, y_train, x_val=None, y_val=None, num_epochs=None, callbacks=[]
+    ) -> History:
         """Trains the model with the given training and validation dataset inputs
         The model is trained with the number of epochs determined by the input.
         If None, then the num_epochs attributes is used.
 
         @since 1.0.0
 
-        @param x_train(ndarray[List[List[int]]]): The training input values
-        @param y_train(ndarray[List[int]]):       The corresponding classes for every training input value encoded as one-hot vectors
+        @param x_train (ndarray[List[List[int]]]): The training input values
+        @param y_train (ndarray[List[int]]):       The corresponding classes for every training input value encoded as one-hot vectors
 
-        @param x_val(ndarray[List[List[int]]]): The validation input values
-        @param y_val(ndarray[List[int]]):       The corresponding classes for every validation input value encoded as one-hot vectors
+        @param x_val (ndarray[List[List[int]]]): The validation input values
+        @param y_val (ndarray[List[int]]):       The corresponding classes for every validation input value encoded as one-hot vectors
 
-        @param num_epochs(int | None): (Optional) The number of epochs to run during the training.
+        @param num_epochs (int | None):    (Optional) The number of epochs to run during the training.
+        @param callbacks (List[Callback]): (Optional) Callbacks to be used during training.
 
         @rtype: History
         @return: The results from the training.
@@ -226,6 +229,10 @@ class BaseModel:
     def summary(self):
         """Outputs the summary of the model"""
         print(self.model.summary())
+
+    def _add(self, layer):
+        """Minor convenience function"""
+        self.model.add(layer)
 
     # Static Method
     @staticmethod

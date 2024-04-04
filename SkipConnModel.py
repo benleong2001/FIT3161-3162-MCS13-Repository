@@ -22,13 +22,111 @@ import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers, models, activations
 
-from BaseModel import BaseModel
+from ResNetModel import ResNetModel
+from constants import *
 
 # ============================================================================================================= #
 
 
 # Class
-class ResNetModel(BaseModel):
+class Residual(tf.keras.Model):
+    """Class representing a single Residual Block
+    A single block consists of the following layers:
+        Conv2D
+        BatchNormalisation
+        Activation
+
+        Conv2D
+        BatchNormalisation
+        SkipConnection (may be with Conv2D layer)
+        Activation
+
+        AveragePooling2D
+        Dropout
+
+    Note:
+        Documentation is using UK english. Normalisation refers to Normalization in TensorFlow
+
+    Attributes:
+        conv1 (Conv2D)
+        conv2 (Conv2D)
+
+        act1 (Activation)
+        act2 (Activation)
+
+        bn1 (BatchNormalisation)
+        bn2 (BatchNormalisation)
+
+        pool (AveragePooling2D)
+        drop_out (Dropout)
+    """
+
+    def __init__(
+        self,
+        num_channels,
+        use_conv=False,
+        activation_func=RELU,
+        drop_rate=0.2,
+        input_shape=None,
+    ):
+        super().__init__()
+        # Conv layers
+        self.conv1 = layers.Conv2D(
+            filters=num_channels, kernel_size=(3, 3), padding="same"
+        )
+
+        self.conv2 = layers.Conv2D(
+            filters=num_channels, kernel_size=(3, 3), padding="same"
+        )
+
+        # Activation
+        self.act1 = layers.Activation(activation_func)
+        self.act2 = layers.Activation(activation_func)
+
+        # Skip Connection
+        self.skip_conn = None
+        if use_conv:
+            self.skip_conn = layers.Conv2D(filters=num_channels, kernel_size=1)
+
+        # Batch Normalisation
+        self.bn1 = layers.BatchNormalization()
+        self.bn2 = layers.BatchNormalization()
+
+        # Ending
+        self.pool = layers.AveragePooling2D(pool_size=(2, 2), padding="same")
+        self.drop_out = layers.Dropout(drop_rate)
+
+    def call(self, X):
+        Y = self.act1(self.bn1(self.conv1(X)))
+        Y = self.bn2(self.conv2(Y))
+        if self.skip_conn:
+            X = self.skip_conn(X)
+        Y += X
+        Y = self.drop_out(self.pool(self.act2(Y)))
+        return Y
+
+
+class ResNetBlock(tf.keras.layers.Layer):
+    def __init__(
+        self, num_channels, num_residuals, first_block=False, input_shape=None, **kwargs
+    ):
+        super(ResNetBlock, self).__init__(**kwargs)
+        self.residual_layers = [
+            Residual(
+                num_channels,
+                use_conv=(i == 0 and not first_block),
+                input_shape=input_shape,
+            )
+            for i in range(num_residuals)
+        ]
+
+    def call(self, X):
+        for layer in self.residual_layers:
+            X = layer(X)
+        return X
+
+
+class SkipConnModel(ResNetModel):
     """A simple CNN Model class
 
     @since 1.0.0
@@ -75,7 +173,7 @@ class ResNetModel(BaseModel):
         num_classes: int = 4,
         activation_func: str = "relu",
         optimiser: str = "adam",
-        batch_size: int = 32,
+        batch_size: int = 10,
         num_epochs: int = 20,
         learning_rate: float = 0.0001,
         verbose: int | bool = True,
@@ -125,19 +223,11 @@ class ResNetModel(BaseModel):
             num_epochs,
             learning_rate,
             verbose,
+            num_blocks,
+            feature_maps,
+            batch_norm,
+            drop_rate,
         )
-
-        # Assigning new attributes
-
-        # ResNet Attributes
-        self.num_blocks = num_blocks
-        self.feature_maps = [feature_maps * (1 << i) for i in range(num_blocks)]
-
-        # Batch Normalisation
-        self.batch_norm = batch_norm
-
-        # Dropout Layer
-        self.drop_rate = drop_rate
 
     def build_cnn(self):
         """Builds the CNN with a ResNet architecture
@@ -166,36 +256,33 @@ class ResNetModel(BaseModel):
         # Determining the input shape
         input_shape = (self.height, self.width, self.depth)
 
-        self.model = models.Sequential()
+        self.model = models.Sequential(
+            [
+                tf.keras.layers.Conv2D(
+                    filters=32,
+                    kernel_size=(3, 3),
+                    padding="same",
+                    input_shape=input_shape,
+                ),
+                tf.keras.layers.BatchNormalization(),
+                tf.keras.layers.Activation(self.activation_func),
+            ]
+        )
 
         for i, feature_map in enumerate(self.feature_maps):
             self._add(
-                layers.Conv2D(
-                    feature_map, (3, 3), padding="same", input_shape=input_shape
+                ResNetBlock(
+                    feature_map,
+                    1,
+                    first_block=not i,
+                    input_shape=input_shape if not i else None,
                 )
             )
 
-            if self.batch_norm:
-                self._add(layers.BatchNormalization())
-
-            self._add(layers.Activation(self.activation_func.lower()))
-
-            self._add(layers.Conv2D(feature_map, (3, 3), padding="same"))
-
-            if self.batch_norm:
-                self._add(layers.BatchNormalization())
-
-            self._add(layers.Activation(self.activation_func.lower()))
-
-            self._add(layers.AveragePooling2D(pool_size=(2, 2), padding="same"))
-
-            self._add(layers.Dropout(self.drop_rate))
-
         # Flatten and Softmax
-        self.model.add(layers.Flatten())
-        self.model.add(layers.Dense(self.num_classes, activation="softmax"))
+        self._add(layers.Flatten())
+        self._add(layers.Dense(self.num_classes, activation="softmax"))
 
-    
 
 # ============================================================================================================= #
 
