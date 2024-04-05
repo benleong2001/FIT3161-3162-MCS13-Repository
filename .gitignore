@@ -5,6 +5,7 @@
 /RealWorldOccludedFaces-resized_128/**
 /RealWorldOccludedFaces-resized_224/**
 /RealWorldOccludedFaces-resized_256/**
+/bleo*
 
 # Miscellaneous
 *.class
