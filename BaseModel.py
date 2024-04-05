@@ -194,7 +194,7 @@ class BaseModel:
         )
 
         self.history = self.model.fit(
-            x_train, y_train, epochs=num_epochs, verbose=self.verbose
+            x_train, y_train, validation_data= (x_val, y_val), epochs=num_epochs, verbose=self.verbose
         )
 
         # Returning the History object computed from the .fit() function
