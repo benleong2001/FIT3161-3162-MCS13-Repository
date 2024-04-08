@@ -3,7 +3,6 @@ This file contains the ResNetModel class.
 It acts as the first step of optimisation for our Deep Learning Model. 
 
 Optimisations include: 
-- Skip Connection
 - Batch Normalisation 
 - Dropout Rate
 
@@ -132,7 +131,7 @@ class ResNetModel(BaseModel):
         # ResNet Attributes
         self.num_blocks = num_blocks
         self.feature_maps = [feature_maps * (1 << i) for i in range(num_blocks)]
-
+        
         # Batch Normalisation
         self.batch_norm = batch_norm
 
