@@ -1,4 +1,4 @@
-# Testing to integrate Python program into a Flutter web application.
+# Integrate Python program into a Flutter web application.
 Source: https://stackoverflow.com/questions/64853113/how-to-integrate-flutter-app-with-python-code <br>
 ## Setting Up: Install the flask module
 run `pip install flask`. <br><br>

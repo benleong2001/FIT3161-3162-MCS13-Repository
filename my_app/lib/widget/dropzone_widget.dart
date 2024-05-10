@@ -6,7 +6,7 @@ import 'package:my_app/model/dropped_file.dart';
 class DropzoneWidget extends StatefulWidget {
   final ValueChanged<DroppedFile> onDroppedFile;
   
-  const DropzoneWidget({Key? key, required this.onDroppedFile}) : super(key: key);
+  const DropzoneWidget({super.key, required this.onDroppedFile});
 
   @override
   // ignore: library_private_types_in_public_api

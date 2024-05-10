@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/registration_page.dart';
+import 'request.dart';
+import 'package:http/http.dart' as http;
+
 void main() {
   runApp(const MyApp());
 }
@@ -43,7 +46,7 @@ class WebPage extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => RegistrationPage()),
+                  MaterialPageRoute(builder: (context) => const RegistrationPage()),
                 );
               },
               style: ElevatedButton.styleFrom(
@@ -124,4 +127,13 @@ class WebPage extends StatelessWidget {
       ),
     );
   } 
+}
+
+Future<String> fetchData() async {
+  final response = await http.get(Uri.parse('https://3bbf-118-139-138-169.ngrok-free.app/')); // Replace with your ngrok URL
+  if (response.statusCode == 200) {
+    return response.body;
+  } else {
+    throw Exception('Failed to fetch data');
+  }
 }
