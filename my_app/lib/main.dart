@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:my_app/registration_page.dart';
 import 'request.dart';
@@ -23,7 +25,7 @@ class MyApp extends StatelessWidget {
 }
 
 class WebPage extends StatelessWidget {
-  const WebPage({super.key});
+  const WebPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -126,14 +128,18 @@ class WebPage extends StatelessWidget {
         ),
       ),
     );
-  } 
-}
-
-Future<String> fetchData() async {
-  final response = await http.get(Uri.parse('https://3bbf-118-139-138-169.ngrok-free.app/')); // Replace with your ngrok URL
-  if (response.statusCode == 200) {
-    return response.body;
-  } else {
-    throw Exception('Failed to fetch data');
   }
 }
+
+// Future<String> fetchData(String imagePath) async {
+//   final request = http.MultipartRequest('POST', Uri.parse('https://b928-202-186-176-157.ngrok-free.app/predict'));
+//   request.files.add(await http.MultipartFile.fromPath('image', imagePath));
+
+//   final response = await request.send();
+//   if (response.statusCode == 200) {
+//     final responseBody = await response.stream.transform(utf8.decoder).join();
+//     return responseBody;
+//   } else {
+//     throw Exception('Failed to fetch data');
+//   }
+// }
