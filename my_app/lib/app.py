@@ -66,7 +66,7 @@ def test(img):
     img = sharpen(img)
     input = np.array(img, "uint8")
     
-    checkpoint_path = "skipconn_model/"
+    checkpoint_path = "lfw_skipconn_model/"
     checkpoint_dir = os.path.dirname(checkpoint_path)
     model = tf.keras.models.load_model(checkpoint_dir)
 

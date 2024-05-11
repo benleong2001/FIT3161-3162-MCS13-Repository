@@ -62,7 +62,7 @@ Future<Map<String, dynamic>> fetchData(DroppedFile file) async {
   final base64Image = base64Encode(file.bytes);
 
   final response = await http.post(
-    Uri.parse('{Letak Uri from ngrok}/predict'),//change this to your ngrok uri
+    Uri.parse('https://e76d-202-186-176-157.ngrok-free.app/predict'),//change this to your ngrok uri
     headers: {'Content-Type': 'application/json'},
     body: jsonEncode({
       'name': file.name,
