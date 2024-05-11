@@ -65,65 +65,14 @@ class WebPage extends StatelessWidget {
                     Expanded(
                       flex: 1,
                       child: Center(
-                        child: Text('Register'),
+                        child: Text('Face Recognition Model'),
                       ),
                     ),
                   ],
                 ),
               ),
             ),
-            const SizedBox(height: 10),
-            ElevatedButton(
-              onPressed: () {
-                // Navigate to the sign-in page
-              },
-              style: ElevatedButton.styleFrom(
-                minimumSize: const Size(200, 50),
-                foregroundColor: Colors.black, // Set the color of the text and icon when the button is pressed
-              ),
-              child: const SizedBox(
-                width: 200,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Icon(Icons.login, size: 24, color: Colors.black), // Add the icon for the sign-in button
-                    SizedBox(width: 10),
-                    Expanded(
-                      flex: 1,
-                      child: Center(
-                        child: Text('Sign In'),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            const SizedBox(height: 10),
-            ElevatedButton(
-              onPressed: () {
-                // Navigate to the delete account page
-              },
-              style: ElevatedButton.styleFrom(
-                minimumSize: const Size(200, 50),
-                foregroundColor: Colors.black, // Set the color of the text and icon when the button is pressed
-              ),
-              child: const SizedBox(
-                width: 200,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Icon(Icons.delete, size: 24, color: Colors.black), // Add the icon for the delete account button
-                    SizedBox(width: 10),
-                    Expanded(
-                      flex: 1,
-                      child: Center(
-                        child: Text('Delete Account'),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
+            
           ],
         ),
       ),
