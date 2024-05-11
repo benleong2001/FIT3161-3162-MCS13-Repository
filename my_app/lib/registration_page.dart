@@ -58,7 +58,7 @@ Future<Map<String, dynamic>> fetchData(DroppedFile file) async {
   final base64Image = base64Encode(file.bytes);
 
   final response = await http.post(
-    Uri.parse('https://ffa6-202-186-176-157.ngrok-free.app/predict'),
+    Uri.parse('https://8130-2001-f40-950-3d6-9c7b-4350-cac7-f697.ngrok-free.app/predict'),
     headers: {'Content-Type': 'application/json'},
     body: jsonEncode({
       'name': file.name,
