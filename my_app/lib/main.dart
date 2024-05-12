@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:my_app/Select_Name_Page.dart';
 import 'package:my_app/registration_page.dart';
 import 'request.dart';
 import 'package:http/http.dart' as http;
@@ -43,12 +44,12 @@ class WebPage extends StatelessWidget {
               width: 100,
               height: 100,
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 20), 
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const RegistrationPage()),
+                  MaterialPageRoute(builder: (context) => const Select_Name_Page()),
                 );
               },
               style: ElevatedButton.styleFrom(
