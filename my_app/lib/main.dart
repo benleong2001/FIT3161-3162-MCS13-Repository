@@ -1,10 +1,6 @@
-import 'dart:convert';
-
+// This file is the main file of the project. It is the first file that is executed when the project is run.
 import 'package:flutter/material.dart';
 import 'package:my_app/Select_Name_Page.dart';
-import 'package:my_app/registration_page.dart';
-import 'request.dart';
-import 'package:http/http.dart' as http;
 
 void main() {
   runApp(const MyApp());
@@ -80,16 +76,3 @@ class WebPage extends StatelessWidget {
     );
   }
 }
-
-// Future<String> fetchData(String imagePath) async {
-//   final request = http.MultipartRequest('POST', Uri.parse('https://b928-202-186-176-157.ngrok-free.app/predict'));
-//   request.files.add(await http.MultipartFile.fromPath('image', imagePath));
-
-//   final response = await request.send();
-//   if (response.statusCode == 200) {
-//     final responseBody = await response.stream.transform(utf8.decoder).join();
-//     return responseBody;
-//   } else {
-//     throw Exception('Failed to fetch data');
-//   }
-// }
