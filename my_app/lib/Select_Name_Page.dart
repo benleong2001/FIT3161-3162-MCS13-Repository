@@ -21,8 +21,9 @@ class _Select_Name_PageState extends State<Select_Name_Page> {
   }
 
  Future<void> _fetchNames() async {
+  const String url = 'https://b141-2001-f40-950-3d6-91e7-219-9c82-8489.ngrok-free.app';
   //get response and disable the web security
-  final response = await http.get(Uri.parse('https://48ec-202-186-190-200.ngrok-free.app/names'),headers:{"ngrok-skip-browser-warning":"69420"});
+  final response = await http.get(Uri.parse('$url/names'),headers:{"ngrok-skip-browser-warning":"69420"});
   
   if (response.statusCode == 200) {
     final jsonData = jsonDecode(response.body);

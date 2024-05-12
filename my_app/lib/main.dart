@@ -1,6 +1,6 @@
 // This file is the main file of the project. It is the first file that is executed when the project is run.
 import 'package:flutter/material.dart';
-import 'package:my_app/Select_Name_Page.dart';
+import 'package:my_app/select_name_page.dart';
 
 void main() {
   runApp(const MyApp());
