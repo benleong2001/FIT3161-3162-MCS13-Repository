@@ -21,9 +21,10 @@ class _RegistrationPageState extends State<RegistrationPage> {
   
   Future<Map<String, dynamic>> fetchData(DroppedFile file) async {
     final base64Image = base64Encode(file.bytes);
+    const String url = 'https://b141-2001-f40-950-3d6-91e7-219-9c82-8489.ngrok-free.app';
 
     final response = await http.post(
-      Uri.parse('https://48ec-202-186-190-200.ngrok-free.app/predict'),
+      Uri.parse('$url/predict'),
       headers: {'Content-Type': 'application/json'},
       body: jsonEncode({
         'name': name,

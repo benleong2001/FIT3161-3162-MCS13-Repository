@@ -4,10 +4,7 @@ import flask
 import os
 import tensorflow as tf
 import numpy as np
-
-from PIL import Image
 import cv2
-
 
 app = flask.Flask(__name__) 
 
@@ -56,36 +53,6 @@ def get_names():
     names = [name.strip() for name in open("display_names.txt", "r").readlines()]
     return flask.jsonify({'names': names})
 
-
-# def test(img):
-
-#     gray_image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-#     face_classifier = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
-#     face = face_classifier.detectMultiScale(gray_image, minNeighbors=3)
-
-#     # for (x, y, w, h) in face:
-#     #     cv2.rectangle(img, (x, y), (x+w, y+h), (0, 255, 0), 2)
-
-#     (x, y, w, h) = face[0]
-#     img = img[y:y+h, x:x+w]
-
-#     img = cv2.resize(img, (224, 224))
-#     img = sharpen(img)
-#     input = np.array(img, "uint8")
-    
-#     checkpoint_path = "lfw_skipconn_model/"
-#     checkpoint_dir = os.path.dirname(checkpoint_path)
-#     model = tf.keras.models.load_model(checkpoint_dir)
-
-#     names = open("names.txt", "r").read().split("\n")
-
-#     idx = np.argmax(model.predict(np.array([input]))[0])
-
-#     print(names[idx])
-
-#     cv2.imshow("image", img)
-#     cv2.waitKey(0)
-
 def sharpen(image):
     kernel = np.array([[-1, -1, -1], [-1, 9, -1], [-1, -1, -1]])
     kernel = 1/3 * kernel
@@ -94,5 +61,3 @@ def sharpen(image):
 if __name__ == '__main__': 
     os.chdir(os.getcwd()+"/lib")
     app.run()
-    # get_names()
-    # test()
