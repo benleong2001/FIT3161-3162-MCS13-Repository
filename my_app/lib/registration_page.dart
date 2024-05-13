@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/widget/dropzone_widget.dart';
 import 'package:my_app/model/dropped_file.dart';
-import 'package:my_app/widget/droppedImage_widget.dart';
+import 'package:my_app/widget/dropped_image_widget.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
