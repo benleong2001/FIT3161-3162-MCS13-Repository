@@ -3,14 +3,14 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:my_app/registration_page.dart';
 
-class Select_Name_Page extends StatefulWidget {
-  const Select_Name_Page({super.key});
+class SelectNamePage extends StatefulWidget {
+  const SelectNamePage({super.key});
 
   @override
-  _Select_Name_PageState createState() => _Select_Name_PageState();
+  _SelectNamePageState createState() => _SelectNamePageState();
 }
 
-class _Select_Name_PageState extends State<Select_Name_Page> {
+class _SelectNamePageState extends State<SelectNamePage> {
   String? selectedName;
   List<String> names = [];
   

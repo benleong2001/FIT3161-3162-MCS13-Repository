@@ -45,7 +45,7 @@ class WebPage extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const Select_Name_Page()),
+                  MaterialPageRoute(builder: (context) => const SelectNamePage()),
                 );
               },
               style: ElevatedButton.styleFrom(
