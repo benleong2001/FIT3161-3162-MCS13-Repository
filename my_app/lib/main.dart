@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
 }
 
 class WebPage extends StatelessWidget {
-  const WebPage({Key? key}) : super(key: key);
+  const WebPage({super.key});
 
   @override
   Widget build(BuildContext context) {
