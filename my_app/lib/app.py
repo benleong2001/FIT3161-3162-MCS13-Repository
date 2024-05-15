@@ -41,7 +41,7 @@ def predict():
     checkpoint_dir = os.path.dirname(checkpoint_path)
     model = tf.keras.models.load_model(checkpoint_dir)
 
-    names = open("display_names.txt", "r").read().split("\n")
+    names = open("names.txt", "r").read().split("\n")
 
     idx = np.argmax(model.predict(np.array([input]))[0])
     sharpened_image_bytes = cv2.imencode('.png', img)[1].tostring()
@@ -50,7 +50,7 @@ def predict():
 
 @app.route('/names', methods=['GET'])
 def get_names():
-    names = [name.strip() for name in open("display_names.txt", "r").readlines()]
+    names = [name.strip() for name in open("names.txt", "r").readlines()]
     return flask.jsonify({'names': names})
 
 def sharpen(image):

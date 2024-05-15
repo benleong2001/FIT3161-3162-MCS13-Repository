@@ -67,7 +67,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Registration Page'),
+        title: const Text('Verification Page'),
       ),
       body: Container(
         alignment: Alignment.center,
