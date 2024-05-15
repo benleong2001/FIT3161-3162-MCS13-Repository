@@ -33,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
       base64Image = base64Encode(droppedFile.bytes);
     }
     
-    const String url = 'https://96a5-118-139-138-173.ngrok-free.app';
+    const String url = 'https://41f7-118-139-138-173.ngrok-free.app';
 
     final response = await http.post(
       Uri.parse('$url/predict'),
@@ -75,7 +75,7 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Uploaded Image:'),
+            const Text('Uploaded Image:'),
             // Image File Display
             DroppedFileWidget(file: file),
             const SizedBox(height: 20),
