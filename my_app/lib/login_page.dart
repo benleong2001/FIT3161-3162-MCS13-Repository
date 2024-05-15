@@ -111,13 +111,14 @@ class _LoginPageState extends State<LoginPage> {
             if (_loading) 
               const CircularProgressIndicator()
             else
-              if (prediction!= null) 
+              if (error != null) 
+                Text('$error', style: const TextStyle(fontSize: 24),)
+              else if (prediction!= null) 
                 if (prediction==widget.selectedName)
                   Text('Welcome, ${widget.selectedName}!', style: const TextStyle(fontSize: 24),)
                 else
-                  Text('Sorry, you are not ${widget.selectedName}.', style: const TextStyle(fontSize: 24),)
-              else if (error != null) 
-                Text('$error', style: const TextStyle(fontSize: 24),),
+                  Text('Sorry, you are not ${widget.selectedName}.', style: const TextStyle(fontSize: 24),),
+
           ],
         ),
       ),
