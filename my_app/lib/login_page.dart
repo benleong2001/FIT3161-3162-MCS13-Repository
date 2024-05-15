@@ -33,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
       base64Image = base64Encode(droppedFile.bytes);
     }
     
-    const String url = 'https://6d11-118-139-138-173.ngrok-free.app';
+    const String url = 'https://96a5-118-139-138-173.ngrok-free.app';
 
     final response = await http.post(
       Uri.parse('$url/predict'),

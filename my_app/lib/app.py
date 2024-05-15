@@ -13,7 +13,7 @@ def predict():
     img_data = flask.request.json['base64_bytes']
 
     if img_data == "":
-        return flask.jsonify({'error': 'Not an image file format!'}), 452
+        return flask.jsonify({'error': 'Not an image file format! Please use .jpg, .jpeg or .png only.'}), 452
 
     img_bytes = base64.b64decode(img_data)
 
@@ -21,7 +21,7 @@ def predict():
         np_array = np.frombuffer(img_bytes, np.uint8)
         img = cv2.imdecode(np_array, cv2.IMREAD_COLOR)
     except Exception as _:
-        return flask.jsonify({'error': 'Invalid image'}), 453
+        return flask.jsonify({'error': 'Invalid image, please try using another image.'}), 453
         
     gray_image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     face_classifier = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
