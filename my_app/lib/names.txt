@@ -1,182 +1,182 @@
-adrien_brody
-alexander_zverev
-alain_delon
-al_pacino
-amber_heard
-andrey_rublev
-amy_klobuchar
-anthony_mackie
-anthony_davis
-anne_hathaway
-antonio_banderas
-ben_mendelsohn
-benedict_cumberbatch
-arnold_schwarzenegger
-bernard_arnault
-bill_gates
-bernie_sanders
-brie_larson
-brad_pitt
-bruce_willis
-bryce_dallas_howard
-charles_leclerc
-carlos_sainz
-bruno_fernandes
-christopher_walken
-chris_evans
-christian_bale
-chris_pratt
-chris_hemsworth
-chuck_schumer
-colin_farell
-cory_booker
-daniel_ricciardo
-colin_firth
-david_alaba
-daniil_medvedev
-dave_bautista
-diego_schwartzman
-dick_durbin
-debbie_stabenow
-denzel_washington
-donald_trump
-dominic_thiem
-don_cheadle
-dwayne_johnson
-donnie_yen
-edward_norton
-elizabeth_warren
-elizabeth_olsen
-ed_harris
-ed_skrein
-elon_musk
-emilia_clarke
-emily_blunt
-evangeline_lilly
-fernando_alonso
-fahrettin_koca
-esteban_ocon
-gary_peters
-george_russell
-george_clooney
-giannis_antetokounmpo
-harrison_ford
-guiseppe_marotta
-hasan_salihamidzic
-gwyneth_paltrow
-heath_ledger
-iga_swiatek
-idris_elba
-ilhan_omar
-jack_black
-immanuel_macron
-james_harden
-jack_nicholson
-james_mcavoy
-jake_gyllenhaal
-jamie_lee_curtis
-jared_leto
-jason_statham
-jason_momoa
-jean_castex
-jayson_tatum
-jeff_bridges
-jennifer_lawrence
-joaquin_phoenix
-jeremy_renner
-jimmy_butler
-johnny_depp
-joe_biden
-joe_manchin
-john_goodman
-john_boyega
-john_ratzenberger
-joshua_kimmich
-jon_favreau
-john_travolta
-josh_brolin
-justin_theroux
-justin_trudeau
-karen_gillan
-kamala_haris
-karim_benzema
-kevin_bacon
-keanu_reeves
-kevin_costner
-kiki_bertens
-kylian_mbappe
-kevin_spacey
-laurence_fishburne
-lance_stroll
-lebron_james
-leonardo_dicaprio
-lewis_hamilton
-lionel_messi
-liam_neeson
-mahershala_ali
-margot_robbie
-manuel_neuer
-mark_hamill
-matt_damon
-mark_ruffalo
-mark_zuckerberg
-mark_warner
-michael_b_jordan
-meryl_streep
-mel_gibson
-michael_douglas
-michael_keaton
-michelle_pfeiffer
-morgan_freeman
-michelle_williams
-naomi_osaka
-mohamed_salah
-nick_jonas
-naomi_scott
-neymar
-nick_nolte
-nicolas_cage
-nicole_kidman
-nikita_mazepin
-patty_murray
-patrick_leahy
-patrick_wilson
-novak_djokovic
-paul_rudd
-paul_bettany
-petra_kvitova
-recep_tayip_erdogan
-pom_klementieff
-rami_malek
-rafael_nadal
-robert_de_niro
-robert_pattinson
-robert_downey_jr
-robin_williams
-roger_federer
-russell_crowe
-samuel_l._jackson
-scarlett_johansson
-sebastian_stan
-sebastian_vettel
-simon_pegg
-serena_williams
-simona_halep
-stefanos_tsitsipas
-tammy_baldwin
-steve_buscemi
-thomas_muller
-tom_cruise
-tom_hanks
-tom_hardy
-tom_hiddleston
-t_j_miller
-victoria_azarenka
-val_kilmer
-willem_dafoe
-vin_diesel
-virgil_van_dijk
-woody_harrelson
-yuki_tsunoda
-zendaya
-zlatan_ibrahimovic
+Adrien Brody
+Alexander Zverev
+Alain Delon
+Al Pacino
+Amber Heard
+Andrey Rublev
+Amy Klobuchar
+Anthony Mackie
+Anthony Davis
+Anne Hathaway
+Antonio Banderas
+Ben Mendelsohn
+Benedict Cumberbatch
+Arnold Schwarzenegger
+Bernard Arnault
+Bill Gates
+Bernie Sanders
+Brie Larson
+Brad Pitt
+Bruce Willis
+Bryce Dallas Howard
+Charles Leclerc
+Carlos Sainz
+Bruno Fernandes
+Christopher Walken
+Chris Evans
+Christian Bale
+Chris Pratt
+Chris Hemsworth
+Chuck Schumer
+Colin Farell
+Cory Booker
+Daniel Ricciardo
+Colin Firth
+David Alaba
+Daniil Medvedev
+Dave Bautista
+Diego Schwartzman
+Dick Durbin
+Debbie Stabenow
+Denzel Washington
+Donald Trump
+Dominic Thiem
+Don Cheadle
+Dwayne Johnson
+Donnie Yen
+Edward Norton
+Elizabeth Warren
+Elizabeth Olsen
+Ed Harris
+Ed Skrein
+Elon Musk
+Emilia Clarke
+Emily Blunt
+Evangeline Lilly
+Fernando Alonso
+Fahrettin Koca
+Esteban Ocon
+Gary Peters
+George Russell
+George Clooney
+Giannis Antetokounmpo
+Harrison Ford
+Guiseppe Marotta
+Hasan Salihamidzic
+Gwyneth Paltrow
+Heath Ledger
+Iga Swiatek
+Idris Elba
+Ilhan Omar
+Jack Black
+Immanuel Macron
+James Harden
+Jack Nicholson
+James Mcavoy
+Jake Gyllenhaal
+Jamie Lee Curtis
+Jared Leto
+Jason Statham
+Jason Momoa
+Jean Castex
+Jayson Tatum
+Jeff Bridges
+Jennifer Lawrence
+Joaquin Phoenix
+Jeremy Renner
+Jimmy Butler
+Johnny Depp
+Joe Biden
+Joe Manchin
+John Goodman
+John Boyega
+John Ratzenberger
+Joshua Kimmich
+Jon Favreau
+John Travolta
+Josh Brolin
+Justin Theroux
+Justin Trudeau
+Karen Gillan
+Kamala Haris
+Karim Benzema
+Kevin Bacon
+Keanu Reeves
+Kevin Costner
+Kiki Bertens
+Kylian Mbappe
+Kevin Spacey
+Laurence Fishburne
+Lance Stroll
+Lebron James
+Leonardo Dicaprio
+Lewis Hamilton
+Lionel Messi
+Liam Neeson
+Mahershala Ali
+Margot Robbie
+Manuel Neuer
+Mark Hamill
+Matt Damon
+Mark Ruffalo
+Mark Zuckerberg
+Mark Warner
+Michael B Jordan
+Meryl Streep
+Mel Gibson
+Michael Douglas
+Michael Keaton
+Michelle Pfeiffer
+Morgan Freeman
+Michelle Williams
+Naomi Osaka
+Mohamed Salah
+Nick Jonas
+Naomi Scott
+Neymar
+Nick Nolte
+Nicolas Cage
+Nicole Kidman
+Nikita Mazepin
+Patty Murray
+Patrick Leahy
+Patrick Wilson
+Novak Djokovic
+Paul Rudd
+Paul Bettany
+Petra Kvitova
+Recep Tayip Erdogan
+Pom Klementieff
+Rami Malek
+Rafael Nadal
+Robert De Niro
+Robert Pattinson
+Robert Downey Jr
+Robin Williams
+Roger Federer
+Russell Crowe
+Samuel L. Jackson
+Scarlett Johansson
+Sebastian Stan
+Sebastian Vettel
+Simon Pegg
+Serena Williams
+Simona Halep
+Stefanos Tsitsipas
+Tammy Baldwin
+Steve Buscemi
+Thomas Muller
+Tom Cruise
+Tom Hanks
+Tom Hardy
+Tom Hiddleston
+T J Miller
+Victoria Azarenka
+Val Kilmer
+Willem Dafoe
+Vin Diesel
+Virgil Van Dijk
+Woody Harrelson
+Yuki Tsunoda
+Zendaya
+Zlatan Ibrahimovic
