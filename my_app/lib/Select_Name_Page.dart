@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
-import 'package:my_app/registration_page.dart';
+import 'package:my_app/login_page.dart';
 
 class SelectNamePage extends StatefulWidget {
   const SelectNamePage({super.key});
@@ -70,7 +70,7 @@ class _SelectNamePageState extends State<SelectNamePage> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => RegistrationPage(selectedName: selectedName!)),
+                  MaterialPageRoute(builder: (context) => LoginPage(selectedName: selectedName!)),
                 );
               },
               style: ElevatedButton.styleFrom(
