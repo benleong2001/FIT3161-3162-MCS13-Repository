@@ -16,12 +16,14 @@ class RegistrationPage extends StatefulWidget {
 class _RegistrationPageState extends State<RegistrationPage> {
   DroppedFile? file;
   String? prediction;
+  String? error;
   String? name;
+  bool _loading = false;
   
   
   Future<Map<String, dynamic>> fetchData(DroppedFile file) async {
     final base64Image = base64Encode(file.bytes);
-    const String url = 'https://b141-2001-f40-950-3d6-91e7-219-9c82-8489.ngrok-free.app';
+    const String url = 'https://de32-2001-f40-950-3d6-38c0-84cf-8145-a251.ngrok-free.app';
 
     final response = await http.post(
       Uri.parse('$url/predict'),
@@ -34,11 +36,20 @@ class _RegistrationPageState extends State<RegistrationPage> {
       throw Exception('Failed to load data: $error');
     });
 
-    if (response.statusCode == 200) {
-      final responseData = jsonDecode(response.body);
-      return {'prediction': responseData['prediction']};
-    } else {
-      throw Exception('Failed to load data: unexpected response status code');
+    switch (response.statusCode) {
+      case 200:
+        final responseData = jsonDecode(response.body);
+        return {'prediction': responseData['prediction']};
+      case 452:
+        final responseData = jsonDecode(response.body);
+        String error = responseData['error'];
+        throw Exception("ERROR CODE 452: $error");
+      case 453:
+        final responseData = jsonDecode(response.body);
+        String error = responseData['error'];
+        throw Exception("ERROR CODE 453: $error");
+      default:
+        throw Exception('Failed to load data: unexpected response status code');
     }
   }
 
@@ -60,23 +71,35 @@ class _RegistrationPageState extends State<RegistrationPage> {
               height: 300,
               child: DropzoneWidget(
                 onDroppedFile: (file) async {
-                  setState(() => this.file = file);
+                  setState(() {
+                    this.file = file;
+                    _loading = true;
+                  });
                   try {
                     final response = await fetchData(file);
                     setState(() {
                       prediction = response['prediction'];
+                      _loading = false;
                     });
                     // Do something with the response
                   } catch (e) {
-                    print(e);
+                    setState(() {
+                      error = e.toString();
+                    });
                   }
                 },
               ),
             ),
-            if (prediction!= null && prediction==widget.selectedName)
-              Text('Welcome $prediction', style: const TextStyle(fontSize: 24),),
-            if (prediction!= null && prediction!=widget.selectedName)
-              Text('Sorry, you are not ${widget.selectedName}', style: const TextStyle(fontSize: 24),),
+            if (_loading) 
+              const CircularProgressIndicator()
+            else
+              if (prediction!= null) 
+                if (prediction==widget.selectedName)
+                  Text('Welcome ${widget.selectedName}', style: const TextStyle(fontSize: 24),)
+                else
+                  Text('Sorry, you are not ${widget.selectedName}', style: const TextStyle(fontSize: 24),)
+              else if (error != null) 
+                Text('Error: $error', style: const TextStyle(fontSize: 24),),
           ],
         ),
       ),
