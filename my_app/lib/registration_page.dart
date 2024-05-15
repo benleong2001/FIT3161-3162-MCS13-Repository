@@ -21,8 +21,18 @@ class _RegistrationPageState extends State<RegistrationPage> {
   bool _loading = false;
   
   
-  Future<Map<String, dynamic>> fetchData(DroppedFile file) async {
-    final base64Image = base64Encode(file.bytes);
+  Future<Map<String, dynamic>> fetchData(DroppedFile droppedFile) async {
+    String fileName = droppedFile.name;
+    String extension = fileName.split('.').last.toLowerCase();
+    final String base64Image;
+    if (extension != 'jpg' && extension != 'jpeg' && extension != 'png') {
+      base64Image = "";
+      file = null;
+    }
+    else {
+      base64Image = base64Encode(droppedFile.bytes);
+    }
+    
     const String url = 'https://de32-2001-f40-950-3d6-38c0-84cf-8145-a251.ngrok-free.app';
 
     final response = await http.post(
@@ -43,11 +53,11 @@ class _RegistrationPageState extends State<RegistrationPage> {
       case 452:
         final responseData = jsonDecode(response.body);
         String error = responseData['error'];
-        throw Exception("ERROR CODE 452: $error");
+        throw Exception("452: $error");
       case 453:
         final responseData = jsonDecode(response.body);
         String error = responseData['error'];
-        throw Exception("ERROR CODE 453: $error");
+        throw Exception("453: $error");
       default:
         throw Exception('Failed to load data: unexpected response status code');
     }
@@ -65,8 +75,12 @@ class _RegistrationPageState extends State<RegistrationPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Text('Uploaded Image:'),
+            // Image File Display
             DroppedFileWidget(file: file),
+            const SizedBox(height: 20),
             
+            // Dropzone
             SizedBox(
               height: 300,
               child: DropzoneWidget(
@@ -85,21 +99,25 @@ class _RegistrationPageState extends State<RegistrationPage> {
                   } catch (e) {
                     setState(() {
                       error = e.toString();
+                      _loading = false;
                     });
                   }
                 },
               ),
             ),
+            const SizedBox(height: 20),
+
+            // Display the predictions
             if (_loading) 
               const CircularProgressIndicator()
             else
               if (prediction!= null) 
                 if (prediction==widget.selectedName)
-                  Text('Welcome ${widget.selectedName}', style: const TextStyle(fontSize: 24),)
+                  Text('Welcome, ${widget.selectedName}!', style: const TextStyle(fontSize: 24),)
                 else
-                  Text('Sorry, you are not ${widget.selectedName}', style: const TextStyle(fontSize: 24),)
+                  Text('Sorry, you are not ${widget.selectedName}.', style: const TextStyle(fontSize: 24),)
               else if (error != null) 
-                Text('Error: $error', style: const TextStyle(fontSize: 24),),
+                Text('$error', style: const TextStyle(fontSize: 24),),
           ],
         ),
       ),

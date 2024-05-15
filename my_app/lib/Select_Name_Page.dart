@@ -49,6 +49,7 @@ class _SelectNamePageState extends State<SelectNamePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Text('Select Username'),
             const SizedBox(height: 16),
             DropdownButton<String>(
               value: selectedName,
@@ -73,11 +74,11 @@ class _SelectNamePageState extends State<SelectNamePage> {
                 );
               },
               style: ElevatedButton.styleFrom(
-                minimumSize: const Size(200, 50),
+                minimumSize: const Size(100, 50),
                 foregroundColor: Colors.black, // Set the color of the text and icon when the button is pressed
               ),
               child: const SizedBox(
-                width: 200,
+                width: 150,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -86,7 +87,7 @@ class _SelectNamePageState extends State<SelectNamePage> {
                     Expanded(
                       flex: 1,
                       child: Center(
-                        child: Text('Login with Face Recognition Model'),
+                        child: Text('Go to Login'),
                       ),
                     ),
                   ],
