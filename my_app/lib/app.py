@@ -37,7 +37,7 @@ def predict():
     # input = cv2.cvtColor(input, cv2.COLOR_BGR2RGB)
     input = input.astype(np.uint8)
     
-    checkpoint_path = "skipconn_model/"
+    checkpoint_path = "lfw_skipconn_model/"
     checkpoint_dir = os.path.dirname(checkpoint_path)
     model = tf.keras.models.load_model(checkpoint_dir)
 
