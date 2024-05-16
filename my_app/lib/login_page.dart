@@ -93,6 +93,7 @@ class _LoginPageState extends State<LoginPage> {
                     final response = await fetchData(file);
                     setState(() {
                       prediction = response['prediction'];
+                      error = null;
                       _loading = false;
                     });
                     // Do something with the response
