@@ -33,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
       base64Image = base64Encode(droppedFile.bytes);
     }
     
-    const String url = 'https://41f7-118-139-138-173.ngrok-free.app';
+    const String url = 'https://7f81-2001-f40-950-3d6-4c44-c1bc-37d6-8d9a.ngrok-free.app';
 
     final response = await http.post(
       Uri.parse('$url/predict'),
@@ -59,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
         String error = responseData['error'];
         throw Exception("453: $error");
       default:
-        throw Exception('Failed to load data: unexpected response status code');
+        throw Exception('Unexpected response status code (500), please check with the system administrator.');
     }
   }
 

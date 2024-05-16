@@ -24,7 +24,6 @@ def predict():
         return flask.jsonify({'error': 'Invalid image, please try using another image.'}), 453
         
     gray_image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    face_classifier = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
     face = face_classifier.detectMultiScale(gray_image, minNeighbors=3)
 
     if len(face) != 0:
@@ -34,14 +33,7 @@ def predict():
     img = sharpen(img)
     
     input = cv2.resize(img, (224, 224))
-    # input = cv2.cvtColor(input, cv2.COLOR_BGR2RGB)
     input = input.astype(np.uint8)
-    
-    checkpoint_path = "lfw_skipconn_model/"
-    checkpoint_dir = os.path.dirname(checkpoint_path)
-    model = tf.keras.models.load_model(checkpoint_dir)
-
-    names = open("names.txt", "r").read().split("\n")
 
     idx = np.argmax(model.predict(np.array([input]))[0])
     sharpened_image_bytes = cv2.imencode('.png', img)[1].tostring()
@@ -60,4 +52,12 @@ def sharpen(image):
 
 if __name__ == '__main__': 
     os.chdir(os.getcwd()+"/lib")
+
+    face_classifier = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+    checkpoint_path = "lfw_skipconn_model/"
+    checkpoint_dir = os.path.dirname(checkpoint_path)
+    model = tf.keras.models.load_model(checkpoint_dir)
+
+    names = open("lfw_names.txt", "r").read().split("\n")
+
     app.run()

@@ -22,7 +22,7 @@ class _SelectNamePageState extends State<SelectNamePage> {
   }
 
   Future<void> _fetchNames() async {
-    const String url = 'https://41f7-118-139-138-173.ngrok-free.app';
+    const String url = 'https://7f81-2001-f40-950-3d6-4c44-c1bc-37d6-8d9a.ngrok-free.app';
     // Get response and disable the web security
     final response = await http.get(Uri.parse('$url/names'), headers: {"ngrok-skip-browser-warning": "69420"});
 
