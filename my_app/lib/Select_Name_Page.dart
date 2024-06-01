@@ -22,7 +22,7 @@ class _SelectNamePageState extends State<SelectNamePage> {
   }
 
   Future<void> _fetchNames() async {
-    const String url = 'https://2d4e-118-139-138-171.ngrok-free.app';
+    const String url = 'https://6e75-118-139-137-175.ngrok-free.app';
     // Get response and disable the web security
     final response = await http.get(Uri.parse('$url/names'), headers: {"ngrok-skip-browser-warning": "69420"});
 
@@ -53,7 +53,7 @@ class _SelectNamePageState extends State<SelectNamePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Registration Page'),
+        title: const Text('User Selection'),
       ),
       body: Container(
         alignment: Alignment.center,
